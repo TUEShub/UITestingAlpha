@@ -1,0 +1,53 @@
+game:GetService("StarterGui"):SetCore("SendNotification", {
+Title = "TUES Hub";
+Text = "Don't Run TUES Hub Twice, Loading.";
+Duration = 15;
+})
+if not game:IsLoaded() then
+	local notLoaded = Instance.new("Message", game:GetService("CoreGui"))
+	notLoaded.Text = 'TUESHub isnt loading...'
+	game.Loaded:Wait()
+	notLoaded:Destroy()
+end
+
+wait(.5)
+-- Used xHeptc UI Library kek
+
+local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))()
+
+local Window = Library.CreateLib("TUES Hub Alpha", "Synapse")
+local Tab = Window:NewTab("TUES")
+local Section = Tab:NewSection("Credits")
+Section:NewLabel("Used xHeptc UI Library")
+Section:NewLabel("Used Tohru Anti-Kick System")
+Section:NewLabel("Thank You For Using TUES Hub Alpha")
+local Tab = Window:NewTab("Character")
+local Section = Tab:NewSection("Movement")
+Section:NewKeybind("KeybindText", "KeybindInfo", Enum.KeyCode.F, function()
+	print("You just clicked the bind")
+end)
+Section:NewButton("ButtonText", "ButtonInfo", function()
+    print("Clicked")
+end)
+Section:NewToggle("ToggleText", "ToggleInfo", function(state)
+    if state then
+        print("Toggle On")
+    else
+        print("Toggle Off")
+    end
+end)
+Section:NewSlider("SliderText", "SliderInfo", 500, 0, function(s) -- 500 (MaxValue) | 0 (MinValue)
+    game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = s
+end)
+--[[
+    Themes:
+
+    LightTheme
+    DarkTheme
+    GrapeTheme
+    BloodTheme
+    Ocean
+    Midnight
+    Sentinel
+    Synapse
+--]]
